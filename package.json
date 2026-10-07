@@ -1,0 +1,9 @@
+{
+  "name": "auris-one-portal",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "playwright-core": "1.63.0",
+    "three": "0.185.1"
+  }
+}

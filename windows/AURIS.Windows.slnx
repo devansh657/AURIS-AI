@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Auris.DeviceService.Tests/Auris.DeviceService.Tests.csproj" />
+  <Project Path="Auris.DeviceService/Auris.DeviceService.csproj" />
+</Solution>

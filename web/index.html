@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#03070b" />
+    <title>AURIS Spatial Intelligence System</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body data-workspace="command">
+    <header class="intelligence-bar">
+      <button class="brand" type="button" data-view-target="command" aria-label="Open command centre">
+        <span class="brand-glyph">A</span>
+        <span><strong>AURIS</strong><small>SPATIAL INTELLIGENCE SYSTEM</small></span>
+      </button>
+      <div class="topology-status">
+        <span id="serverState" class="signal"><i></i>BACKEND CONNECTING</span>
+        <span class="signal"><i></i>DEVANSH-LAPTOP</span>
+        <span id="voiceTopState" class="signal"><i></i>VOICE STANDBY</span>
+        <span id="visionTopState" class="signal"><i></i>VISION IDLE</span>
+        <span id="privacyTopState" class="signal"><i></i>PRIVACY STANDARD</span>
+      </div>
+      <div class="top-actions">
+        <time id="systemClock">--:--:--</time>
+        <span class="alert-level">ALERT <b>GREEN</b></span>
+        <button class="stop-control" id="stopControl" type="button">EMERGENCY STOP</button>
+      </div>
+    </header>
+
+    <div class="command-shell">
+      <nav class="navigation-rail" aria-label="AURIS workspaces">
+        <div class="nav-primary">
+          <button class="nav-item active" data-view="command" type="button"><span>01</span>Command</button>
+          <button class="nav-item" data-view="daily" type="button"><span>02</span>Daily</button>
+          <button class="nav-item" data-view="missions" type="button"><span>03</span>Missions</button>
+          <button class="nav-item" data-view="projects" type="button"><span>04</span>Projects</button>
+          <button class="nav-item" data-view="research" type="button"><span>05</span>Research</button>
+          <button class="nav-item" data-view="engineering" type="button"><span>06</span>Engineering</button>
+          <button class="nav-item" data-view="documents" type="button"><span>07</span>Documents</button>
+          <button class="nav-item" data-view="devices" type="button"><span>08</span>Devices</button>
+          <button class="nav-item" data-view="memory" type="button"><span>09</span>Memory</button>
+          <button class="nav-item" data-view="approvals" type="button"><span>10</span>Approvals</button>
+          <button class="nav-item" data-view="activity" type="button"><span>11</span>Activity</button>
+          <button class="nav-item" data-view="events" type="button"><span>12</span>Events</button>
+          <button class="nav-item" data-view="integrations" type="button"><span>13</span>Integrations</button>
+          <button class="nav-item" data-view="decisions" type="button"><span>14</span>Decisions</button>
+          <button class="nav-item" data-view="browser" type="button"><span>15</span>Browser</button>
+        </div>
+        <div class="nav-future">
+          <p>SPECIALIST CHANNELS</p>
+          <button type="button" data-view-target="research" title="Open research intelligence">Research</button>
+          <button type="button" data-view-target="engineering" title="Open engineering intelligence">Engineering</button>
+          <button type="button" data-view-target="documents" title="Open document intelligence">Documents</button>
+          <button type="button" data-view-target="decisions" title="Open decision intelligence">Decision Lab</button>
+          <button type="button" data-view-target="events" title="Local event engine online">Automations</button>
+          <button type="button" data-view-target="browser" title="Open isolated browser operations">Browser</button>
+        </div>
+        <div class="nav-footer">
+          <span>FOUNDATION BUILD</span>
+          <strong>0.8.34 // AUTONOMOUS ARRAY</strong>
+        </div>
+      </nav>
+
+      <main class="primary-space">
+        <section class="workspace-view active" data-view-panel="command">
+          <div class="workspace-heading command-heading">
+            <div class="command-title-block"><p>COMMAND CENTRE // AURIS CORE</p><h1>AURIS // AUTONOMOUS COGNITIVE ARRAY</h1><small>REAL-TIME COGNITIVE INFRASTRUCTURE // MULTI-AGENT REASONING // VERIFIED DEVICE CONTROL</small><div class="command-provenance" aria-label="Data provenance"><span>REAL DATA</span><span>DERIVED</span><span>DECORATIVE</span></div></div>
+            <div class="command-view-controls">
+              <div class="core-view-control" role="group" aria-label="Neural projection mode">
+                <button class="active" type="button" data-core-view="3d">3D</button><button type="button" data-core-view="2d">2D</button><button type="button" data-core-view="schematic">SCHEMATIC</button>
+              </div>
+              <div class="quality-control" role="group" aria-label="Neural visualization quality">
+                <button type="button" data-quality="eco">ECO</button><button class="active" type="button" data-quality="balanced">BALANCED</button><button type="button" data-quality="cinematic">CINEMATIC</button>
+              </div>
+              <button id="openCommandSearch" class="technical-button" type="button">SEARCH</button>
+              <button id="toggleFocusMode" class="technical-button" type="button">FOCUS</button>
+              <div class="heading-telemetry"><span>MODE</span><b id="activeMode">COMMAND</b></div>
+            </div>
+          </div>
+
+          <div class="command-centre-grid">
+            <aside class="machine-intelligence intelligence-wing" aria-label="Live machine telemetry">
+              <header><div><p>LIVE SYSTEM HEALTH //</p><h2 id="commandMachineName">EDGE NODE</h2></div><span class="data-origin real">REAL-TIME</span></header>
+              <div class="radial-telemetry">
+                <article class="radial-stat" id="commandCpuGauge"><div><strong id="commandCpuUsage">--</strong></div><span>CPU</span><small id="commandCpuDetail">Awaiting telemetry</small><i><b id="commandCpuBar"></b></i></article>
+                <article class="radial-stat" id="commandGpuGauge"><div><strong id="commandGpuUsage">--</strong></div><span>GPU</span><small id="commandGpuDetail">Awaiting telemetry</small><i><b id="commandGpuBar"></b></i></article>
+                <article class="radial-stat" id="commandRamGauge"><div><strong id="commandRamUsage">--</strong></div><span>MEMORY</span><small id="commandRamDetail">Awaiting telemetry</small><i><b id="commandRamBar"></b></i></article>
+                <article class="radial-stat" id="commandDiskGauge"><div><strong id="commandDiskPercent">--</strong></div><span>STORAGE</span><small id="commandDiskGaugeDetail">Awaiting telemetry</small><i><b id="commandDiskBar"></b></i></article>
+              </div>
+              <section class="neural-engine-panel">
+                <div class="wing-label"><span>NEURAL ENGINES //</span><b>VERIFIED STATUS</b></div>
+                <div id="commandEngineList" class="engine-status-list"><p>Awaiting agent fabric.</p></div>
+              </section>
+              <section class="telemetry-plot">
+                <div class="wing-label"><span>SYSTEM TELEMETRY //</span><b>LIVE SAMPLES</b></div>
+                <svg id="commandTelemetryChart" viewBox="0 0 200 64" preserveAspectRatio="none" aria-label="Recent real CPU, memory, and GPU telemetry">
+                  <path class="telemetry-grid" d="M0 16H200M0 32H200M0 48H200M40 0V64M80 0V64M120 0V64M160 0V64"></path>
+                  <polyline id="commandCpuTrace" class="trace cpu-trace" points=""></polyline>
+                  <polyline id="commandRamTrace" class="trace ram-trace" points=""></polyline>
+                  <polyline id="commandGpuTrace" class="trace gpu-trace" points=""></polyline>
+                </svg>
+                <div class="telemetry-key"><span class="cpu-key">CPU</span><span class="ram-key">MEM</span><span class="gpu-key">GPU</span></div>
+              </section>
+              <dl class="machine-facts">
+                <div><dt>STORAGE</dt><dd id="commandDiskUsage">--</dd></div>
+                <div><dt>UPTIME</dt><dd id="commandUptime">--</dd></div>
+                <div><dt>POWER</dt><dd id="commandPower">--</dd></div>
+                <div><dt>PLATFORM</dt><dd id="commandPlatform">--</dd></div>
+              </dl>
+              <div class="process-scan compact-process-scan"><span>PROCESS SNAPSHOT</span><div id="commandProcesses">Waiting for device scan.</div></div>
+            </aside>
+
+            <section class="core-module neural-core-module" aria-label="Interactive AURIS neural intelligence">
+              <canvas id="aurisCore" aria-hidden="true"></canvas>
+              <div class="core-vignette"></div>
+              <div class="core-atmosphere" aria-hidden="true"><i></i><i></i><i></i></div>
+              <div class="core-axis" aria-hidden="true"><span>+04.82</span><i></i><b>AXIS/COGNITIVE</b><i></i><span>-04.82</span></div>
+              <div class="core-scan-plane" aria-hidden="true"></div>
+              <div class="core-subsystem-tabs" role="group" aria-label="Cognitive subsystem focus">
+                <button class="active" type="button" data-core-focus="">OVERVIEW</button><button type="button" data-core-focus="reasoning">COGNITION</button><button type="button" data-core-focus="memory">MEMORY</button><button type="button" data-core-focus="agents">AGENTS</button><button type="button" data-core-focus="knowledge">KNOWLEDGE</button><button type="button" data-core-focus="system">SYSTEM</button>
+              </div>
+              <div class="core-hud top-left"><span>CORE/01</span><b id="coreFps">WEBGL</b><small>PROCEDURAL NEURAL FIELD</small></div>
+              <div class="core-hud top-right"><span>ACTIVE CONTEXT</span><b id="coreContext">AURIS ONE</b><small>REAL WORKSPACE</small></div>
+              <div class="core-identity">
+                <span id="coreStateLabel">READY</span>
+                <strong>AURIS</strong>
+                <small>SYNTHETIC INTELLIGENCE CORE</small>
+                <em id="coreStateDetail">AWAITING DIRECTIVE</em>
+              </div>
+              <div class="core-data-window data-memory"><span>MEMORY</span><strong id="coreMemoryMetric">PROJECT SCOPED</strong><small>SEMANTIC RETRIEVAL</small></div>
+              <div class="core-data-window data-reasoning"><span>REASONING</span><strong id="coreReasoningMetric">STANDBY</strong><small>ROUTE // LOCAL</small></div>
+              <div class="core-data-window data-knowledge"><span>KNOWLEDGE</span><strong id="coreKnowledgeMetric">INDEX READY</strong><small>GRAPH // EVIDENCE</small></div>
+              <div class="core-data-window data-agents"><span>AGENTS</span><strong id="coreAgentMetric">-- ONLINE</strong><small>CONSTELLATION</small></div>
+              <div class="core-data-window data-voice"><span>PERCEPTION</span><strong id="coreVoiceMetric">VOICE STANDBY</strong><small>MULTIMODAL INPUT</small></div>
+              <div class="core-data-window data-mission"><span>MISSION ROUTING</span><strong id="coreMissionMetric">0 ACTIVE</strong><small>VERIFIED WORKFLOWS</small></div>
+              <div class="core-inspector" id="coreInspector" aria-live="polite">
+                <span>NEURAL FIELD</span><strong>HOVER A CLUSTER</strong><dl><div><dt>STATUS</dt><dd>LIVE</dd></div><div><dt>ACTIVITY</dt><dd>AMBIENT</dd></div><div><dt>SIGNAL</dt><dd>LOCAL</dd></div></dl>
+              </div>
+              <nav class="neural-navigation" aria-label="Neural subsystem navigation">
+                <button class="nav-memory" type="button" data-core-focus="memory"><i></i>MEMORY</button>
+                <button class="nav-research" type="button" data-core-focus="knowledge"><i></i>KNOWLEDGE</button>
+                <button class="nav-system" type="button" data-core-focus="system"><i></i>SYSTEM</button>
+                <button class="nav-code" type="button" data-core-focus="reasoning"><i></i>REASONING</button>
+                <button class="nav-agents" type="button" data-core-focus="agents"><i></i>AGENTS</button>
+                <button class="nav-voice" type="button" data-core-focus="perception"><i></i>PERCEPTION</button>
+              </nav>
+              <div class="core-readouts">
+                <span>POLICY <b>ENFORCED</b></span><span>VOICE <b id="voiceReadout">NATIVE</b></span><span>DEVICE <b>BOUND</b></span><span>NEURAL <b id="responseRouteReadout">ROUTING</b></span><span>RENDER <b id="coreQuality">BALANCED</b></span><span>PROJECTION <b id="coreProjection">3D</b></span>
+              </div>
+            </section>
+
+            <aside class="activity-intelligence intelligence-wing" aria-label="AURIS live activity">
+              <header><div><p>OPERATIONAL MESH //</p><h2>Real-time orchestration</h2></div><span class="data-origin real">LIVE</span></header>
+              <div class="activity-metrics">
+                <div><span>AGENTS</span><strong id="commandAgentCount">--</strong></div><div><span>MISSIONS</span><strong id="commandTaskCount">--</strong></div><div><span>APPROVALS</span><strong id="commandApprovalCount">--</strong></div>
+              </div>
+              <section class="radar-field" aria-label="Agent radar"><div class="radar-sweep"></div><i class="radar-node n1"></i><i class="radar-node n2"></i><i class="radar-node n3"></i><span>AGENT RADAR // DECORATIVE POSITION</span></section>
+              <section class="command-agent-stream"><div class="wing-label"><span>ACTIVE AGENTS //</span><b>REAL STATUS</b></div><div id="commandAgentList"></div></section>
+              <section class="command-mission-context">
+                <div class="wing-label"><span>MISSION CONTEXT //</span><b id="commandMissionState">STANDBY</b></div>
+                <strong id="commandMissionObjective">No active mission</strong>
+                <dl><div><dt>RISK</dt><dd id="commandMissionRisk">NONE</dd></div><div><dt>VERIFICATION</dt><dd id="commandMissionVerification">READY</dd></div></dl>
+              </section>
+              <section class="activity-timeline"><div class="wing-label"><span>TEMPORAL ACTIVITY</span><b>REAL EVENTS</b></div><div id="commandTimeline"><p>Awaiting event stream.</p></div></section>
+              <section class="security-strip"><span>AUTH <b>ACTIVE</b></span><span>TRUST <b>LOCAL</b></span><span>SANDBOX <b>POLICY</b></span></section>
+            </aside>
+          </div>
+
+          <div class="lower-intelligence-grid">
+            <section class="transcript-module">
+                <div class="module-header"><div><p>LIVE INTELLIGENCE TRANSCRIPT</p><h2>Conversation</h2></div><div class="view-tabs"><button class="active" type="button">RESPONSE</button><button type="button" data-view-target="missions">PLAN</button><button type="button" data-view-target="activity">AUDIT</button></div></div>
+                <div class="conversation" id="conversation"><article class="transcript-entry auris-entry"><header><time>NOW</time><span>AURIS</span></header><p>Voice, local intelligence, temporal memory, research, vision, documents, reminders, and verified Windows control are standing by.</p></article><div id="messages"></div></div>
+                <div id="liveOperation" class="operation-stream"><i></i><span>IDLE</span> Awaiting directive.</div>
+            </section>
+            <section class="quick-operations">
+              <div class="module-header"><div><p>WINDOWS DEVICE AGENT</p><h2>Approved operations</h2></div><span class="secure-label">STANDARD PERMISSION</span></div>
+              <div class="operation-grid">
+                <button type="button" data-command="AURIS, open Notepad"><span>APP</span><strong>Open Notepad</strong><small>Reversible launch</small></button>
+                <button type="button" data-command="AURIS, open Calculator"><span>APP</span><strong>Open Calculator</strong><small>Reversible launch</small></button>
+                <button type="button" data-command="AURIS, open my Documents"><span>DIR</span><strong>Open Documents</strong><small>Approved folder</small></button>
+                <button type="button" data-command="AURIS, describe my screen"><span>VIS</span><strong>Describe screen</strong><small>Temporary local capture</small></button>
+                <button type="button" data-command="AURIS, show system health"><span>SYS</span><strong>System health</strong><small>Read-only telemetry</small></button>
+              </div>
+            </section>
+          </div>
+          <section class="mission-strip">
+            <div><p>ACTIVE OBJECTIVE</p><strong id="missionObjective">No active mission</strong></div><div><p>STATE</p><strong id="missionState">STANDBY</strong></div><div><p>RISK</p><strong id="missionRisk">NONE</strong></div><div><p>VERIFICATION</p><strong id="missionVerification">READY</strong></div>
+          </section>
+        </section>
+
+        <section class="workspace-view" data-view-panel="daily">
+          <div class="workspace-heading"><div><p>DAILY COMMAND CENTRE</p><h1>Operational briefing</h1></div><div class="workspace-actions"><button type="button" data-command="AURIS, prepare my daily briefing">GENERATE BRIEF</button><button id="refreshWorkspaces" class="technical-button" type="button">REFRESH</button></div></div>
+          <section class="daily-objective"><div><p id="dailyDate">CURRENT OPERATING DAY</p><h2 id="dailyObjective">Assessing mission state...</h2><div id="dailySupporting" class="supporting-objectives"></div><small>LONDON // LOCAL DEVICE CONTEXT</small></div><div><span>SUGGESTED FIRST ACTION</span><strong id="dailyFirstAction">Calculating...</strong></div></section>
+          <div class="daily-grid">
+            <section class="surface-section"><div class="module-header"><div><p>MISSION PRIORITY</p><h2>Priorities</h2></div></div><div id="dailyPriorities" class="priority-stream"></div></section>
+            <section class="surface-section"><div class="module-header"><div><p>TEMPORAL CONTEXT</p><h2>Schedule</h2></div></div><div id="dailySchedule" class="data-stream"></div></section>
+            <section class="surface-section"><div class="module-header"><div><p>ACTIVE FABRIC</p><h2>Systems</h2></div></div><div id="dailySystems" class="telemetry-list"></div></section>
+            <section class="surface-section"><div class="module-header"><div><p>RISK SIGNALS</p><h2>Alerts</h2></div></div><div id="dailyRisks" class="data-stream"></div></section>
+          </div>
+          <section class="operations-intelligence" aria-label="Personal operations intelligence">
+            <div class="module-header operations-header"><div><p>GEN 10 // ANTICIPATION ENGINE</p><h2>Personal operations radar</h2></div><span class="provenance-badge">REAL DURABLE EVIDENCE</span></div>
+            <div id="attentionMetrics" class="attention-metrics"></div>
+            <div class="operations-grid">
+              <section class="operations-channel"><div class="channel-heading"><span>ATTENTION MODEL</span><strong>Ranked signals</strong></div><div id="dailyAttention" class="attention-stream"></div></section>
+              <section class="operations-channel"><div class="channel-heading"><span>OPPORTUNITY RADAR</span><strong>Evidence-backed openings</strong></div><div id="dailyOpportunities" class="attention-stream"></div></section>
+              <section class="operations-channel operations-graph-channel">
+                <div class="channel-heading"><span>OPERATIONS GRAPH</span><strong>Connected context</strong></div>
+                <form id="operationsQueryForm" class="operations-query"><input id="operationsQueryInput" maxlength="200" placeholder="Project, company, file, mission..." aria-label="Search operations graph" /><button type="submit">TRACE</button></form>
+                <div id="operationsGraph" class="operations-graph"></div>
+              </section>
+              <section class="operations-channel"><div class="channel-heading"><span>EVENING DEBRIEF</span><strong>Recorded outcomes</strong></div><div id="eveningDebrief" class="debrief-stream"></div></section>
+              <section class="operations-channel world-model-channel">
+                <div class="channel-heading"><span>GEN 11 // WORLD MODEL</span><strong>Operational state and bounded simulation</strong></div>
+                <div id="worldModelMetrics" class="graph-summary"></div>
+                <form id="worldActionForm" class="world-action-form">
+                  <select id="worldActionSelect" aria-label="Select a world-model action"></select>
+                  <select id="worldAlternativeSelect" aria-label="Select an optional counterfactual action"><option value="">NO ALTERNATIVE // COMPARE WITH NO ACTION</option></select>
+                  <button type="submit">SIMULATE</button>
+                </form>
+                <div id="worldSimulation" class="world-simulation"></div>
+              </section>
+              <section class="operations-channel predictive-channel">
+                <div class="channel-heading"><span>GEN 12 // PREDICTIVE INTELLIGENCE</span><strong>Evidence-bound operational forecast</strong></div>
+                <div id="predictiveMetrics" class="graph-summary"></div>
+                <div id="predictiveSignals" class="predictive-signals"></div>
+              </section>
+            </div>
+          </section>
+        </section>
+
+        <section class="workspace-view" data-view-panel="missions">
+          <div class="workspace-heading"><div><p>MISSION CONTROL</p><h1>Tasks and verification</h1></div><button id="refreshTasks" class="technical-button" type="button">REFRESH</button></div>
+          <div class="split-workspace">
+            <section class="surface-section"><div class="module-header"><div><p>SUPERVISOR GRAPH</p><h2>Active plan</h2></div><span id="riskBadge" class="risk-badge">NO TASK</span></div><div id="planView" class="empty-state">Issue a directive to generate a mission graph.</div></section>
+            <section class="surface-section"><div class="module-header"><div><p>DURABLE HISTORY</p><h2>Recent missions</h2></div></div><div id="tasksView" class="data-stream"></div></section>
+          </div>
+        </section>
+
+        <section class="workspace-view" data-view-panel="projects">
+          <div class="workspace-heading"><div><p>PROJECT INTELLIGENCE</p><h1>Active workspaces</h1></div><button type="button" data-view-target="command" class="technical-button">OPEN COMMAND</button></div>
+          <div id="projectsWorkspace" class="project-grid"></div>
+        </section>
+
+        <section class="workspace-view" data-view-panel="research">
+          <div class="workspace-heading"><div><p>RESEARCH INTELLIGENCE</p><h1>Evidence operations</h1></div><span class="secure-label">BOUNDED PUBLIC SOURCES</span></div>
+          <form id="researchForm" class="workspace-command"><input id="researchInput" placeholder="Research topic..." /><button type="submit">RUN RESEARCH</button></form>
+          <div id="researchMetrics" class="workspace-metrics"></div>
+          <div class="split-workspace research-workspace">
+            <section class="surface-section"><div class="module-header"><div><p>EVIDENCE CONSTELLATION</p><h2>Latest campaign</h2></div></div><div id="researchMap" class="research-map"></div></section>
+            <section class="surface-section"><div class="module-header"><div><p>CAMPAIGN LEDGER</p><h2>Research history</h2></div></div><div id="researchCampaigns" class="data-stream"></div></section>
+          </div>
+          <section class="surface-section source-section"><div class="module-header"><div><p>SOURCE STREAM</p><h2>Preserved evidence links</h2></div></div><div id="researchSources" class="source-stream"></div></section>
+        </section>
+
+        <section class="workspace-view" data-view-panel="engineering">
+          <div class="workspace-heading"><div><p>ENGINEERING INTELLIGENCE</p><h1 id="engineeringProjectName">Selected project</h1></div><div class="workspace-actions"><button type="button" data-command="AURIS, analyse this project">ANALYSE</button><button id="codexProjectMission" type="button">CODEX MISSION</button><button id="runProjectTests" type="button" data-command="AURIS, run the tests">RUN TESTS</button><button id="repairProjectTest" type="button" data-command="AURIS, fix this failing test">FIX FAILING TEST</button></div></div>
+          <form id="projectRootForm" class="workspace-command"><input id="projectRootInput" autocomplete="off" placeholder="Registered local project directory..." /><button id="projectRootButton" type="submit">REGISTER ROOT</button></form>
+          <div id="engineeringMetrics" class="workspace-metrics"></div>
+          <div class="split-workspace engineering-workspace">
+            <section class="surface-section"><div class="module-header"><div><p>REPOSITORY MAP</p><h2>Composition</h2></div><span class="secure-label">READ ONLY</span></div><div id="repositoryMap" class="repository-map"></div></section>
+            <section class="surface-section"><div class="module-header"><div><p>TEST AND CHECK LEDGER</p><h2>Recent runs</h2></div></div><div id="engineeringRuns" class="data-stream"></div></section>
+          </div>
+          <div class="split-workspace engineering-analysis">
+            <section class="surface-section"><div class="module-header"><div><p>ARCHITECTURE MAP</p><h2>Components and instructions</h2></div></div><div id="engineeringComponents" class="analysis-stream"></div></section>
+            <section class="surface-section"><div class="module-header"><div><p>REVIEW SIGNALS</p><h2>Bounded findings</h2></div></div><div id="engineeringRisks" class="analysis-stream"></div></section>
+          </div>
+          <section class="engineering-boundary"><div><span>PROJECT ROOT</span><strong id="projectRootState">NOT REGISTERED</strong></div><div><span>SECURITY POLICY</span><strong>ENFORCED</strong></div><div><span>VERSION CONTROL</span><strong id="versionControlState">NOT CONFIGURED</strong></div></section>
+        </section>
+
+        <section class="workspace-view" data-view-panel="documents">
+          <div class="workspace-heading"><div><p>DOCUMENT AND DATA INTELLIGENCE</p><h1>Read and analyse</h1></div><span class="secure-label">ORIGINALS PRESERVED</span></div>
+          <form id="documentForm" class="workspace-command"><input id="documentInput" placeholder="Exact or distinctive document filename..." /><button type="submit">ANALYSE DOCUMENT</button></form>
+          <div class="split-workspace document-workspace">
+            <section class="surface-section"><div class="module-header"><div><p>FORMAT FABRIC</p><h2>Supported extraction</h2></div></div><div id="documentFormats" class="format-grid"></div></section>
+            <section class="surface-section"><div class="module-header"><div><p>DOCUMENT LEDGER</p><h2>Recent operations</h2></div></div><div id="documentRuns" class="data-stream"></div></section>
+          </div>
+          <section class="artifact-boundary"><span>ARTIFACT WRITE WORKER</span><strong>NOT CONNECTED</strong><button type="button" disabled title="Document creation remains behind its validation and approval gate">CREATE ARTIFACT</button></section>
+        </section>
+
+        <section class="workspace-view" data-view-panel="devices">
+          <div class="workspace-heading"><div><p>DEVICE COMMAND</p><h1>DEVANSH-LAPTOP</h1></div><button id="refreshStatus" class="technical-button" type="button">REFRESH</button></div>
+          <section class="device-topology">
+            <div class="topology-core"><span>CLOUD ROUTER</span><strong id="cloudRouterState">NOT CONNECTED</strong></div>
+            <div class="topology-link"><i></i><span id="deviceIpcState">AUTHENTICATED PIPE // SIGNED COMMANDS</span></div>
+            <div class="topology-device"><span>WINDOWS AGENT</span><strong id="deviceTrustState">TRUSTED LOCAL</strong><small id="deviceTrustDetail">Typed permission // signature // nonce replay defence</small></div>
+          </section>
+          <div class="split-workspace">
+            <section class="surface-section"><div class="module-header"><div><p>DEVICE TELEMETRY</p><h2>System state</h2></div></div><div id="systemView" class="telemetry-list"></div></section>
+            <section class="surface-section"><div class="module-header"><div><p>PERMISSION BOUNDARY</p><h2>Available operations</h2></div></div><div id="capabilitiesView" class="capability-list"></div></section>
+          </div>
+        </section>
+
+        <section class="workspace-view" data-view-panel="memory">
+          <div class="workspace-heading">
+            <div><p>CONTEXT ARCHITECTURE</p><h1>Inspectable memory</h1></div>
+            <div class="workspace-actions"><span id="memoryMode" class="secure-label">PERSISTENT</span><button id="memoryExport" class="technical-button" type="button">EXPORT</button></div>
+          </div>
+          <div id="memoryMetrics" class="memory-metrics"></div>
+          <form id="memoryForm" class="memory-compose">
+            <label><span>Class</span><select id="memoryCategory">
+              <option value="project">Project</option><option value="profile">Profile</option><option value="working">Working</option><option value="episodic">Episodic</option><option value="procedural">Procedural</option><option value="relationship">Relationship</option><option value="decision">Decision</option><option value="research">Research</option><option value="device">Device</option><option value="preference">Preference</option>
+            </select></label>
+            <label><span>Subject</span><input id="memorySubject" maxlength="160" placeholder="backend port" /></label>
+            <label><span>Environment</span><input id="memoryEnvironment" maxlength="80" placeholder="development" /></label>
+            <label><span>Sensitivity</span><select id="memorySensitivity"><option value="normal">Normal</option><option value="personal">Personal</option><option value="sensitive">Sensitive</option><option value="restricted">Restricted</option></select></label>
+            <label><span>Expires</span><input id="memoryExpiry" type="datetime-local" /></label>
+            <label class="memory-content-field"><span>Assertion</span><textarea id="memoryInput" maxlength="4000" placeholder="Store an explicit, correctable assertion..." required></textarea></label>
+            <fieldset id="memoryDecisionFields" class="memory-decision-fields" hidden>
+              <label><span>Alternatives</span><textarea id="memoryDecisionAlternatives" maxlength="4000" placeholder="One alternative per line"></textarea></label>
+              <label><span>Evidence</span><textarea id="memoryDecisionEvidence" maxlength="4000" placeholder="One evidence item per line"></textarea></label>
+              <label><span>Assumptions</span><textarea id="memoryDecisionAssumptions" maxlength="4000" placeholder="One assumption per line"></textarea></label>
+              <label><span>Risks</span><textarea id="memoryDecisionRisks" maxlength="4000" placeholder="One risk per line"></textarea></label>
+              <label><span>Reason</span><textarea id="memoryDecisionReason" maxlength="1000"></textarea></label>
+              <label><span>Outcome</span><textarea id="memoryDecisionOutcome" maxlength="1000"></textarea></label>
+            </fieldset>
+            <button type="submit">STORE MEMORY</button>
+          </form>
+          <div class="memory-operations">
+            <form id="memoryFilterForm" class="memory-filters">
+              <input id="memorySearch" type="search" maxlength="200" placeholder="Search memory..." />
+              <select id="memoryCategoryFilter"><option value="">All classes</option></select>
+              <select id="memoryStatusFilter"><option value="">All states</option><option value="active">Active</option><option value="conflicted">Conflicted</option><option value="superseded">Superseded</option></select>
+              <select id="memorySensitivityFilter"><option value="">All sensitivity</option><option value="normal">Normal</option><option value="personal">Personal</option><option value="sensitive">Sensitive</option><option value="restricted">Restricted</option></select>
+              <button type="submit">FILTER</button>
+            </form>
+            <div id="memoryCategories" class="memory-categories" aria-label="Memory category controls"></div>
+          </div>
+          <div id="memoryConflicts" class="memory-conflicts"></div>
+          <div id="memoryView" class="memory-grid"></div>
+
+          <dialog id="memoryEditDialog" class="memory-dialog">
+            <form id="memoryEditForm">
+              <header><div><p>MEMORY CORRECTION</p><h2>Supersede assertion</h2></div><button type="button" data-dialog-close="memoryEditDialog" aria-label="Close">X</button></header>
+              <input id="memoryEditId" type="hidden" />
+              <label><span>Assertion</span><textarea id="memoryEditContent" maxlength="4000" required></textarea></label>
+              <div class="memory-dialog-grid">
+                <label><span>Subject</span><input id="memoryEditSubject" maxlength="160" /></label>
+                <label><span>Environment</span><input id="memoryEditEnvironment" maxlength="80" /></label>
+                <label><span>Sensitivity</span><select id="memoryEditSensitivity"><option value="normal">Normal</option><option value="personal">Personal</option><option value="sensitive">Sensitive</option><option value="restricted">Restricted</option></select></label>
+                <label><span>Expires</span><input id="memoryEditExpiry" type="datetime-local" /></label>
+              </div>
+              <label><span>Correction reason</span><input id="memoryEditReason" maxlength="300" required /></label>
+              <footer><button type="button" data-dialog-close="memoryEditDialog">CANCEL</button><button type="submit">SAVE CORRECTION</button></footer>
+            </form>
+          </dialog>
+
+          <dialog id="memoryHistoryDialog" class="memory-dialog memory-history-dialog">
+            <header><div><p>TEMPORAL RECORD</p><h2>Memory history</h2></div><button type="button" data-dialog-close="memoryHistoryDialog" aria-label="Close">X</button></header>
+            <div id="memoryHistoryView" class="memory-history"></div>
+          </dialog>
+        </section>
+
+        <section class="workspace-view" data-view-panel="decisions">
+          <div class="workspace-heading">
+            <div><p>GEN 11 // ADVANCED COGNITION</p><h1>Decision intelligence lab</h1></div>
+            <div class="workspace-actions"><span class="secure-label">EVIDENCE BOUND</span><button id="refreshDecisions" class="technical-button" type="button">REFRESH</button></div>
+          </div>
+          <div id="decisionMetrics" class="workspace-metrics"></div>
+          <form id="decisionForm" class="decision-form">
+            <label class="decision-objective"><span>Objective</span><input id="decisionObjective" maxlength="1000" placeholder="Decision to evaluate..." required /></label>
+            <label><span>Option A</span><input id="decisionOptionA" maxlength="180" required /></label>
+            <label><span>Option B</span><input id="decisionOptionB" maxlength="180" required /></label>
+            <label><span>Criterion</span><input id="decisionCriterion" maxlength="80" placeholder="Reliability" required /></label>
+            <label><span>Weight</span><input id="decisionWeight" type="number" min="0.1" max="10" step="0.1" value="1" required /></label>
+            <label><span>A score</span><input id="decisionScoreA" type="number" min="0" max="5" step="0.1" value="3" required /></label>
+            <label><span>B score</span><input id="decisionScoreB" type="number" min="0" max="5" step="0.1" value="3" required /></label>
+            <label><span>Council review</span><select id="decisionCouncil"><option value="false">Deterministic</option><option value="true">Five-role council</option></select></label>
+            <label class="decision-unknowns"><span>Known unknowns</span><textarea id="decisionUnknowns" maxlength="3000" placeholder="One unresolved factor per line"></textarea></label>
+            <button type="submit">ANALYSE</button>
+          </form>
+          <div class="decision-grid">
+            <section class="surface-section"><div class="module-header"><div><p>RECOMMENDATION</p><h2>Current analysis</h2></div><span id="decisionConfidence" class="secure-label">UNASSESSED</span></div><div id="decisionRecommendation" class="decision-readout"></div></section>
+            <section class="surface-section"><div class="module-header"><div><p>EPISTEMIC LEDGER</p><h2>Evidence and uncertainty</h2></div></div><div id="decisionEvidence" class="decision-readout"></div></section>
+          </div>
+          <form id="decisionOutcomeForm" class="decision-outcome-form">
+            <label><span>Decision case</span><select id="decisionOutcomeCase" required></select></label>
+            <label><span>Observed result</span><select id="decisionOutcomeSuccess"><option value="true">Succeeded</option><option value="false">Did not succeed</option></select></label>
+            <label><span>Expected outcome</span><input id="decisionExpectedSummary" maxlength="1000" placeholder="What was expected..." /></label>
+            <label><span>Actual outcome</span><input id="decisionOutcomeSummary" maxlength="1000" placeholder="What actually happened..." required /></label>
+            <label><span>Difference</span><input id="decisionDifferenceSummary" maxlength="1000" placeholder="Material variance from expectation..." /></label>
+            <label><span>Root cause</span><input id="decisionRootCause" maxlength="1000" placeholder="Best supported cause..." /></label>
+            <label><span>Lesson</span><input id="decisionLesson" maxlength="1000" placeholder="Reusable evidence-bound lesson..." /></label>
+            <label><span>Confidence update</span><select id="decisionConfidenceUpdate"><option value="unchanged">Unchanged</option><option value="increased">Increased</option><option value="decreased">Decreased</option><option value="unknown">Unknown</option></select></label>
+            <button type="submit">RECORD OUTCOME</button>
+          </form>
+          <div class="decision-grid">
+            <section class="surface-section"><div class="module-header"><div><p>OUTCOME LEARNING</p><h2>Empirical feedback</h2></div><span class="secure-label">ADVISORY ONLY</span></div><div id="decisionLearning" class="decision-readout"></div></section>
+            <section class="surface-section"><div class="module-header"><div><p>CASE HISTORY</p><h2>Decision case ledger</h2></div><span class="secure-label">EMPIRICAL ONLY</span></div><div id="decisionCases" class="data-stream"></div></section>
+          </div>
+        </section>
+
+        <section class="workspace-view" data-view-panel="approvals">
+          <div class="workspace-heading"><div><p>HUMAN AUTHORITY</p><h1>Approval centre</h1></div><button id="refreshApprovals" class="technical-button" type="button">REFRESH</button></div>
+          <div id="approvalsView" class="approval-stack"></div>
+        </section>
+
+        <section class="workspace-view" data-view-panel="activity">
+          <div class="workspace-heading"><div><p>OBSERVABILITY</p><h1>Operational audit</h1></div><button id="refreshAudit" class="technical-button" type="button">REFRESH</button></div>
+          <section class="surface-section voice-trace-section" aria-labelledby="voiceTraceHeading">
+            <div class="module-header"><div><p>VOICE PIPELINE</p><h2 id="voiceTraceHeading">Recent voice turns</h2></div><span class="secure-label">RAM ONLY // 15 MIN</span></div>
+            <div id="voiceTurnsView" class="voice-turns"><p class="empty-state">No recent voice input.</p></div>
+          </section>
+          <div id="auditView" class="audit-table"></div>
+        </section>
+
+        <section class="workspace-view" data-view-panel="events">
+          <div class="workspace-heading"><div><p>PROACTIVE EVENT ENGINE</p><h1>Watches and reminders</h1></div><button id="refreshEvents" class="technical-button" type="button">REFRESH</button></div>
+          <form id="watchForm" class="watch-compose">
+            <label><span>Signal</span><select id="watchMetric"><option value="project_delay_risk">Project delay risk</option><option value="deadline_risk">Deadline risk</option><option value="workload_pressure">Workload pressure</option><option value="resource_conflicts">Resource conflicts</option><option value="follow_up_likelihood">Follow-up likelihood</option><option value="mission_failure_probability">Mission failure rate</option><option value="opportunity_relevance">Opportunity relevance</option></select></label>
+            <label><span>Condition</span><select id="watchOperator"><option value="gte">At or above</option><option value="lte">At or below</option></select></label>
+            <label><span>Threshold</span><input id="watchThreshold" type="number" min="0" max="100" value="70" required /></label>
+            <label><span>Evaluate</span><select id="watchInterval"><option value="300">Every 5 minutes</option><option value="900">Every 15 minutes</option><option value="3600">Every hour</option><option value="21600">Every 6 hours</option><option value="86400">Daily</option></select></label>
+            <button type="submit">CREATE WATCH</button>
+          </form>
+          <div class="event-intelligence-grid">
+            <section class="surface-section"><div class="module-header"><div><p>THRESHOLD WATCHES</p><h2>Durable observers</h2></div><span class="secure-label">ADVISORY ONLY</span></div><div id="watchesView" class="approval-stack"></div></section>
+            <section class="surface-section"><div class="module-header"><div><p>ALERT LEDGER</p><h2>Threshold transitions</h2></div><span class="secure-label">NO AUTO ACTION</span></div><div id="watchAlertsView" class="approval-stack"></div></section>
+          </div>
+          <section class="surface-section reminder-ledger"><div class="module-header"><div><p>REMINDER LEDGER</p><h2>Scheduled prompts</h2></div></div><div id="eventsView" class="approval-stack"></div></section>
+        </section>
+
+        <section class="workspace-view" data-view-panel="browser">
+          <div class="workspace-heading"><div><p>ISOLATED BROWSER OPERATIONS</p><h1>Edge accessibility control</h1></div><button id="refreshBrowser" class="technical-button" type="button">REFRESH</button></div>
+          <div id="browserMetrics" class="workspace-metrics"></div>
+          <div class="browser-operation-grid">
+            <section class="surface-section"><div class="module-header"><div><p>NAVIGATION</p><h2>Verified page state</h2></div><span class="secure-label">HTTP(S) ONLY</span></div><form id="browserNavigateForm" class="browser-operation-form"><label><span>URL or domain</span><input id="browserUrl" placeholder="example.com" maxlength="500" required /></label><button type="submit">NAVIGATE</button><button id="browserInspect" type="button">INSPECT PAGE</button></form></section>
+            <section class="surface-section"><div class="module-header"><div><p>FIELD CONTROL</p><h2>Exact accessible label</h2></div><span class="secure-label">APPROVAL REQUIRED</span></div><form id="browserFillForm" class="browser-operation-form"><label><span>Field name</span><input id="browserFieldName" placeholder="Email address" maxlength="120" required /></label><label><span>Value</span><input id="browserFieldValue" maxlength="500" required /></label><button type="submit">PREPARE FILL</button></form></section>
+            <section class="surface-section"><div class="module-header"><div><p>CONTROL INVOCATION</p><h2>Exact accessible name</h2></div><span class="secure-label">APPROVAL + VERIFY</span></div><form id="browserClickForm" class="browser-operation-form"><label><span>Control name</span><input id="browserControlName" placeholder="Continue" maxlength="120" required /></label><button type="submit">PREPARE CLICK</button></form></section>
+            <section class="surface-section browser-mission-section"><div class="module-header"><div><p>MISSION COMPOSER</p><h2>Navigate, fill, invoke, verify</h2></div><span class="secure-label">ONE-TIME APPROVAL</span></div><form id="browserMissionForm" class="browser-operation-form browser-mission-form"><label><span>URL or domain</span><input id="browserMissionUrl" placeholder="example.com/form" maxlength="500" required /></label><label><span>Field name</span><input id="browserMissionField" placeholder="Reference" maxlength="120" required /></label><label><span>Approved value</span><input id="browserMissionValue" maxlength="500" required /></label><label><span>Final control</span><input id="browserMissionControl" placeholder="Preview" maxlength="120" required /></label><button type="submit">PREPARE VERIFIED MISSION</button></form></section>
+            <section class="surface-section browser-state-section"><div class="module-header"><div><p>APPLICATION STATE</p><h2>Durable mission checkpoint</h2></div><span class="secure-label">PROJECT SCOPED</span></div><div id="browserStateView" class="browser-state-view"></div><div class="browser-state-actions"><button id="browserStateShow" type="button">SHOW STATE</button><button id="browserStateContinue" type="button" disabled>CONTINUE WITH APPROVAL</button></div></section>
+            <section class="surface-section"><div class="module-header"><div><p>PAGE OBSERVATION</p><h2>Untrusted web state</h2></div><span class="secure-label">NO PAGE INSTRUCTIONS</span></div><div id="browserPageView" class="browser-page-view"></div></section>
+          </div>
+        </section>
+
+        <section class="workspace-view" data-view-panel="integrations">
+          <div class="workspace-heading"><div><p>AUTHORISED CONNECTOR FABRIC</p><h1>Productivity services</h1></div><button id="refreshIntegrations" class="technical-button" type="button">REFRESH</button></div>
+          <div id="integrationsView" class="integration-grid"></div>
+        </section>
+      </main>
+
+      <aside class="context-layer">
+        <section>
+          <p class="context-label">CURRENT CONTEXT</p>
+          <label for="projectSelect">Project workspace</label>
+          <select id="projectSelect"></select>
+          <label for="modeSelect">Operating mode</label>
+          <select id="modeSelect">
+            <option value="command">Command</option>
+            <option value="discussion">Strategic</option>
+            <option value="research">Research</option>
+            <option value="coding">Coding</option>
+            <option value="learning">Learning</option>
+            <option value="private">Private</option>
+          </select>
+          <label class="privacy-control"><input id="privateToggle" type="checkbox" /><span>Temporary private session</span></label>
+        </section>
+        <section>
+          <p class="context-label">MISSION INTELLIGENCE</p>
+          <dl class="context-data">
+            <div><dt>Objective</dt><dd id="contextObjective">Awaiting directive</dd></div>
+            <div><dt>Active agent</dt><dd id="contextAgent">Supervisor</dd></div>
+            <div><dt>Permission</dt><dd id="contextPermission">Read-only</dd></div>
+            <div><dt>Next action</dt><dd id="contextNext">Listen for command</dd></div>
+          </dl>
+        </section>
+        <section>
+          <p class="context-label">AGENT LATTICE</p>
+          <div id="agentsView" class="agent-lattice"></div>
+        </section>
+        <section class="security-perimeter">
+          <p class="context-label">SECURITY PERIMETER</p>
+          <div><span>Policy kernel</span><b>ENFORCED</b></div>
+          <div><span>Admin privilege</span><b>DISABLED</b></div>
+          <div><span>Audit coverage</span><b>ACTIVE</b></div>
+        </section>
+      </aside>
+
+      <form class="command-dock" id="commandForm">
+        <button id="voiceButton" class="voice-control" type="button" aria-label="Listen for a voice command"><span></span>LISTEN</button>
+        <label class="wake-control" title="Listen locally for the AURIS wake word"><input id="wakeToggle" type="checkbox" /><span>WAKE</span></label>
+        <div class="dock-modes" role="group" aria-label="AURIS operational channels">
+          <button type="button" data-view-target="research"><span>RESEARCH</span><small>KNOWLEDGE</small></button>
+          <button type="button" data-command="AURIS, analyse this project"><span>ANALYSE</span><small>MULTI-AGENT</small></button>
+          <button type="button" data-view-target="missions"><span>PLAN</span><small>MISSIONS</small></button>
+          <button type="button" data-view-target="browser"><span>BROWSER</span><small>WEB CONTROL</small></button>
+        </div>
+        <input id="commandInput" autocomplete="off" placeholder="Give AURIS a directive..." />
+        <button class="execute-control" type="submit">EXECUTE</button>
+        <button class="pause-control" id="pauseControl" type="button" disabled title="No long-running operation is active">PAUSE</button>
+        <button class="dock-stop" id="dockStop" type="button">STOP</button>
+      </form>
+    </div>
+
+    <div id="bootSequence" class="boot-sequence" role="status" aria-live="polite">
+      <div class="boot-mark">A</div><h2>AURIS CORE INITIALISING</h2><div class="boot-ledger"><span>EDGE NODE <b>ONLINE</b></span><span>MEMORY <b>SYNCING</b></span><span>VOICE <b>WARMING</b></span><span>AGENT RUNTIME <b>ONLINE</b></span><span>NEURAL MATRIX <b>ASSEMBLING</b></span></div><button id="skipBoot" type="button">SKIP</button>
+    </div>
+
+    <dialog id="commandPalette" class="command-palette">
+      <form method="dialog"><header><span>AURIS UNIVERSAL ACCESS</span><button value="close" aria-label="Close">X</button></header><input id="commandPaletteInput" autocomplete="off" placeholder="Search commands, workspaces, memory and tools..." /><div id="commandPaletteResults"></div><footer>CTRL + K // ESC TO CLOSE</footer></form>
+    </dialog>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

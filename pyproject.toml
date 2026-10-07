@@ -1,0 +1,19 @@
+[project]
+name = "auris-one"
+version = "0.8.34"
+description = "AURIS One: a voice-enabled supervised Windows AI operating system foundation."
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+cloud = [
+  "cryptography==49.0.0",
+  "fastapi==0.139.2",
+  "uvicorn==0.51.0",
+]
+cloud-test = [
+  "httpx2==2.7.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

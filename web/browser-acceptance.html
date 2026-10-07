@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AURIS Browser Acceptance</title>
+    <link rel="stylesheet" href="/browser-acceptance.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Browser control verification</h1>
+      <p>This local page contains no account data and exists only to verify bounded accessibility interaction.</p>
+      <form method="get" action="/browser-acceptance.html">
+        <label for="acceptanceNote">Acceptance note<input id="acceptanceNote" name="note" maxlength="80" placeholder="Acceptance note" /></label>
+        <label for="missionTag">Mission tag<input id="missionTag" name="tag" maxlength="80" placeholder="Mission tag" /></label>
+        <button type="submit">Apply Preview</button>
+      </form>
+    </main>
+  </body>
+</html>
